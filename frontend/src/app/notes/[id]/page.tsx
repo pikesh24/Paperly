@@ -1,0 +1,1 @@
+import MixedEditor from '@/components/Editor/MixedEditor'; export default function P({ params }) { return <MixedEditor noteId={params.id} />; }
