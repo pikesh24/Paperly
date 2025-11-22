@@ -14,12 +14,19 @@ enum ContentType {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  name      String?
-  notes     Note[]
-  createdAt DateTime @default(now())
+  id            String      @id @default(uuid())
+  email         String      @unique
+  password      String
+  name          String?
+  notes         Note[]
+  magicLinks    MagicLink[]
+  
+  // --- GAMIFICATION FIELDS (Belong to User) ---
+  currentStreak Int         @default(0)
+  longestStreak Int         @default(0)
+  lastPostedAt  DateTime? 
+  
+  createdAt     DateTime    @default(now())
 }
 
 model Note {
@@ -28,8 +35,21 @@ model Note {
   content     String?     @db.Text
   drawingData Json?
   contentType ContentType @default(TEXT)
+  
+  // --- MOOD FIELD (Belongs to Note) ---
+  mood        String?     
+  
   userId      String
   user        User        @relation(fields: [userId], references: [id])
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+}
+
+model MagicLink {
+  id         String   @id @default(uuid())
+  token      String   @unique
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  validUntil DateTime
+  createdAt  DateTime @default(now())
 }
