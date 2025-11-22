@@ -1,0 +1,109 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+/* --- THE TRIGGER BUTTON --- */
+.triggerBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.triggerBtn:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
+.triggerBtn.hasMood {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-primary);
+}
+
+/* --- THE DROPDOWN MENU --- */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  width: 280px;
+  
+  /* Premium Glass Effect */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(0,0,0,0.05);
+    
+  border-radius: 16px;
+  padding: 8px;
+  z-index: 50;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  
+  /* Animation */
+  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top left;
+}
+
+/* --- MOOD OPTION ITEMS --- */
+.moodOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.moodOption:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.emoji {
+  font-size: 24px;
+  margin-bottom: 4px;
+  /* Slight bounce on hover */
+  transition: transform 0.2s;
+}
+
+.moodOption:hover .emoji {
+  transform: scale(1.1);
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+}
+
+/* --- BACKDROP (Invisible click catcher) --- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  cursor: default;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: scale(0.95) translateY(-5px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

@@ -1,0 +1,117 @@
+.sidebar {
+  width: 280px;
+  height: 100vh; /* Full height */
+  /* Glass Effect - Crucial: Background MUST be transparent for blur to work */
+  background: var(--bg-sidebar); 
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  
+  display: flex;
+  flex-direction: column;
+  padding: 32px 20px; /* More breathing room */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* --- LOGO AREA --- */
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding: 0 12px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  /* Premium Gradient */
+  background: linear-gradient(135deg, var(--accent-primary), #60a5fa);
+  border-radius: 10px;
+  color: white;
+  font-family: serif; /* Gives it that 'Paperly' editorial feel */
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.logoText {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+/* --- CREATE BUTTON --- */
+.createBtn {
+  width: 100%;
+  background: var(--text-primary); /* Dark button in light mode */
+  color: var(--bg-app);
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.createBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* --- NAVIGATION --- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1; /* Pushes Settings to bottom */
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px; /* Rounded pill shape */
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  background: rgba(150, 150, 150, 0.08);
+  color: var(--text-primary);
+}
+
+/* Active State - The "Pill" Look */
+.navItem.active {
+  background: var(--accent-glow); /* Subtle background */
+  color: var(--accent-primary);   /* Bright text */
+  font-weight: 600;
+}
+
+.activeIcon {
+  /* Optional: Make icon filled or slightly larger when active */
+  transform: scale(1.05); 
+}
+
+/* --- FOOTER (Settings) --- */
+.footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(150, 150, 150, 0.1);
+}
