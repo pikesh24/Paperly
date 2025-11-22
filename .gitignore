@@ -1,0 +1,24 @@
+# --- Dependencies & Build Artifacts (Crucial) ---
+
+# Node modules for frontend and backend
+node_modules/
+**/node_modules/
+
+# Next.js build and cache folders
+.next/
+out/
+
+# TypeScript compiler output
+dist/
+/dist
+
+# --- Private Credentials (Security) ---
+
+# This MUST NOT be tracked, as it contains your DB password.
+.env
+**/.env
+
+# --- Operating System/Editor Files ---
+.DS_Store
+*.log
+npm-debug.log*
